@@ -12,6 +12,7 @@ import paquete003.BilleteraPagos;
  */
 public class Principal {
     public static void main(String[] args) {
+        //Trabajo Enviado
         BilleteraPagos pago = new BilleteraPagos();
         System.out.println(pago);
     }
