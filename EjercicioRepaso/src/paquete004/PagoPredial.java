@@ -13,16 +13,15 @@ import paquete002.Propiedad;
  */
 public class PagoPredial extends Pago {
 
-    double valorPropiedad ;
+    Propiedad valorPropiedad ;
     double porcentaje;
-    double pago;
 
-    public PagoPredial(double valorP, double por) {
+    public PagoPredial(Propiedad valorP, double por) {
         valorPropiedad = valorP;
         porcentaje = por;
     }
 
-    public void estableverValorPropiedad(double valorP) {
+    public void estableverValorPropiedad(Propiedad valorP) {
        valorPropiedad = valorP;
     }
 
@@ -30,7 +29,7 @@ public class PagoPredial extends Pago {
         porcentaje = por;
     }
 
-    public double obtenerValorPropiedad() {
+    public Propiedad obtenerValorPropiedad() {
         return valorPropiedad;
     }
 
@@ -38,12 +37,18 @@ public class PagoPredial extends Pago {
         return porcentaje;
     }
 
-    public double obtenerPago() {
-        return pago;
-    }
-
     @Override
     public void calcularPago() {
-        pago = valorPropiedad - ((valorPropiedad * porcentaje) / 100);
+        pago = valorPropiedad.obtenerCostoPropiedad() - ((valorPropiedad.obtenerCostoPropiedad() * porcentaje) / 100);
+    }
+    @Override
+    public String toString(){
+        String cadena="Pago Predial\n";
+        cadena=String.format( "%sCosto Propiedad: %.2f\n"
+                + "Porcentaje: %.2f\n"
+                + "Pago predial: %.2f\n", cadena,
+                valorPropiedad.obtenerCostoPropiedad(),porcentaje,
+                pago);
+        return cadena;
     }
 }

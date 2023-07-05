@@ -4,25 +4,32 @@
  */
 package paquete004;
 
+import paquete002.Ciudad;
+
 /**
  *
  * @author reroes
  */
 public class PagoLuzElectrica extends Pago {
 
-    private double pago = 0;
     private double tarifaBase;
     private double kilovatiosConsumidos ;
     private double costoKilovatio;
+    private Ciudad ciudad;
 
-    public PagoLuzElectrica(double ta,double kil,double cos) {
+    public PagoLuzElectrica(double ta,double kil,double cos,Ciudad ciu) {
         tarifaBase=ta;
         kilovatiosConsumidos=kil;
         costoKilovatio=cos;
+        ciudad=ciu;
     }
 
     public void establecerTarifaBase(double tari) {
         tarifaBase = tari;
+    }
+
+    public void establecerCiudad(Ciudad ciu) {
+        ciudad = ciu;
     }
 
     public void establecerKilovatiosConsumidos(double kilo) {
@@ -31,10 +38,6 @@ public class PagoLuzElectrica extends Pago {
 
     public void establecerostoKilovatio(double cost) {
         costoKilovatio = cost;
-    }
-
-    public double obtenerPago() {
-        return pago;
     }
 
     public double obtenerarifaBase() {
@@ -49,14 +52,27 @@ public class PagoLuzElectrica extends Pago {
         return costoKilovatio;
     }
 
+    public Ciudad obtenerCiudad() {
+        return ciudad;
+    }
+
     @Override
     public void calcularPago() {
 
-        String ciudad = "Loja";
-        if (ciudad.equals("Loja")) {
+        if (ciudad.obtenerNombreCiudad().equals("Loja")) {
             pago = tarifaBase + (kilovatiosConsumidos * costoKilovatio / 2);
         } else {
             pago = tarifaBase + (kilovatiosConsumidos * costoKilovatio);
         }
+    }
+    @Override
+    public String toString(){
+        String cadena="Pago de Luz Electrica\n";
+        cadena=String.format("%sCiudad: %s\n"+
+                "Tarifa Fija: %.2f\nKilobatios Consumidos: %.2f\n"
+                + "Costo Consumo por Kilobatio: %.2f\n"
+                + "Pago de Luz: %.2f\n", cadena,ciudad.obtenerNombreCiudad(),tarifaBase,
+                kilovatiosConsumidos,costoKilovatio,pago);
+        return cadena;
     }
 }

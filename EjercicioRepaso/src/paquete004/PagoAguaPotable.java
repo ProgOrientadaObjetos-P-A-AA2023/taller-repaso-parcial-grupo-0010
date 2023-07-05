@@ -11,7 +11,6 @@ package paquete004;
 public class PagoAguaPotable extends Pago {
 
     private String tipo;
-    private double pago;
     double tarifaFija;
     double metrosCubicosConsumo;
     double costoConsumoCubicos;
@@ -43,9 +42,6 @@ public class PagoAguaPotable extends Pago {
         return tipo;
     }
 
-    public double obtenerPago() {
-        return pago;
-    }
 
     public double obtenerTarifaFija() {
         return tarifaFija;
@@ -66,5 +62,15 @@ public class PagoAguaPotable extends Pago {
         } else {
             pago = tarifaFija + (metrosCubicosConsumo * costoConsumoCubicos);
         }
+    }
+    @Override
+    public String toString(){
+        String cadena="Pago de agua Potable\n";
+        cadena=String.format("%sTipo de propiedad: %s\n"+
+                "Tarifa Fija: %.2f\nMetros Cubicos de Consumo: %.2f\n"
+                + "Costo Consumo por Metro Cubico: %.2f\n"
+                + "Pago Agua: %.2f\n", cadena,tipo,tarifaFija,
+                metrosCubicosConsumo,costoConsumoCubicos,pago);
+        return cadena;
     }
 }

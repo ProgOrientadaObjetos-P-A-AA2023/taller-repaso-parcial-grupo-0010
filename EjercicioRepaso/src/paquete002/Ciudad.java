@@ -9,5 +9,18 @@ package paquete002;
  * @author reroes
  */
 public class Ciudad {
-    String nombreCiudad;
+    private String nombreCiudad;
+
+    public Ciudad(String nombreCiu) {
+        nombreCiudad = nombreCiu;
+    }
+
+    public void establecerNombreCiudad(String nombreCi) {
+        nombreCiudad = nombreCi;
+    }
+
+    public String obtenerNombreCiudad() {
+        return nombreCiudad;
+    }
+    
 }

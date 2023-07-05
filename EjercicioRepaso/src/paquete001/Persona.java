@@ -18,6 +18,14 @@ public class Persona {
     private String cedula;
     private Ciudad ciudad;
 
+    public Persona(String nom, String ape, int ed, String ced, Ciudad ci) {
+        nombre = nom;
+        apellido = ape;
+        edad = ed;
+        cedula = ced;
+        ciudad = ci;
+    }
+
     public void establecerNombre(String nom) {
         this.nombre = nom;
     }
@@ -36,6 +44,26 @@ public class Persona {
 
     public void establecerCiudad(Ciudad ciu) {
         ciudad = ciu;
+    }
+
+    public String obtenerNombre() {
+        return nombre;
+    }
+
+    public String obtenerApellido() {
+        return apellido;
+    }
+
+    public int obtenerEdad() {
+        return edad;
+    }
+
+    public String obtenerCedula() {
+        return cedula;
+    }
+
+    public Ciudad ObtenerCiudad() {
+        return ciudad;
     }
 
 }

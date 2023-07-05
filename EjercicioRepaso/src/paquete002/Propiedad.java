@@ -9,5 +9,17 @@ package paquete002;
  * @author reroes
  */
 public class Propiedad {
-    public double costoPropiedad;
+    private double costoPropiedad;
+    public Propiedad(double costoPro) {
+        costoPropiedad = costoPro;
+    }
+
+    public void establecerCostoPropiedad(double costoPro) {
+        costoPropiedad = costoPro;
+    }
+
+    public double obtenerCostoPropiedad() {
+        return costoPropiedad;
+    }
+    
 }
