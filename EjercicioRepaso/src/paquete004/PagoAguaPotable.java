@@ -4,27 +4,67 @@
  */
 package paquete004;
 
-import paquete001.Persona;
-
 /**
  *
  * @author reroes
  */
-public class PagoAguaPotable {
-    public double calcularPago(String tipo){
-        double pago = 0;
-        if(tipo.equals("comercial")){
-            double tarifaFija = 2.20;
-            double metrosCubicosConsumo = 100.2;
-            double costoConsumoCubicos = 0.2;
+public class PagoAguaPotable extends Pago {
+
+    private String tipo;
+    private double pago;
+    double tarifaFija;
+    double metrosCubicosConsumo;
+    double costoConsumoCubicos;
+
+    public PagoAguaPotable(String tip,double tari,double metro, double cos) {
+        tipo = tip;
+        tarifaFija=tari;
+        metrosCubicosConsumo=metro;
+        costoConsumoCubicos=cos;
+    }
+
+    public void establecerTipo(String tip) {
+        tipo = tip;
+    }
+
+    public void establecerTarifaFija(double tarifa) {
+       tarifaFija = tarifa;
+    }
+
+    public void establecerMetrosCubicosConsumo(double metros) {
+       metrosCubicosConsumo = metros;
+    }
+
+    public void establecerCostoConsumoCubicos(double costo) {
+        costoConsumoCubicos = costo;
+    }
+
+    public String obtenerTipo() {
+        return tipo;
+    }
+
+    public double obtenerPago() {
+        return pago;
+    }
+
+    public double obtenerTarifaFija() {
+        return tarifaFija;
+    }
+
+    public double obtenerMetrosCubicosConsumo() {
+        return metrosCubicosConsumo;
+    }
+
+    public double obtenerCostoConsumoCubicos() {
+        return costoConsumoCubicos;
+    }
+
+    @Override
+    public void calcularPago() {
+        if (tipo.equals("comercial")) {
             pago = tarifaFija + (metrosCubicosConsumo * costoConsumoCubicos) + 15;
-        }else{
-            double tarifaFija = 2.20;
-            double metrosCubicosConsumo = 100.2;
-            double costoConsumoCubicos = 0.2;
+        } else {
             pago = tarifaFija + (metrosCubicosConsumo * costoConsumoCubicos);
         }
-        
-        return pago;
     }
 }

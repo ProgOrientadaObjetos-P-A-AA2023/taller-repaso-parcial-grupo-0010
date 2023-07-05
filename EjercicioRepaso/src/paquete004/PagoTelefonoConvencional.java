@@ -4,19 +4,26 @@
  */
 package paquete004;
 
-import paquete001.Persona;
-
 /**
  *
  * @author reroes
  */
-public class PagoTelefonoConvencional {
-    
-    public double calcularPago(){
-        double tarifa = 6.20;
-        double minutosConsumidos = 100;
-        double costoMinuto = 0.2;
-        double pago = tarifa + (minutosConsumidos * costoMinuto);
-        return pago;
+public class PagoTelefonoConvencional extends Pago {
+
+    private double tarifa;
+    private double minutosConsumidos;
+    private double costoMinuto;
+    private double pago;
+
+    public PagoTelefonoConvencional(double ta, double min, double costoMin) {
+        tarifa = ta;
+        minutosConsumidos = min;
+        costoMinuto = costoMin;
+    }
+
+    @Override
+    public void calcularPago() {
+
+        pago = tarifa + (minutosConsumidos * costoMinuto);
     }
 }
