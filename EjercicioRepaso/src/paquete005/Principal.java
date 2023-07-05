@@ -23,7 +23,7 @@ public class Principal {
     public static void main(String[] args) {
         
         Propiedad pro1=new Propiedad(15000);
-        PagoAguaPotable pagoA= new PagoAguaPotable("comercial", 10, 2, 2.5);
+        PagoAguaPotable  pagoA= new PagoAguaPotable("comercial", 10, 2, 2.5);
         Ciudad ciu=new Ciudad("Loja");
         Ciudad ciu2=new Ciudad("Zamora");
         Persona per=new Persona("Tara", "Cuenca", 18, "13532525323", ciu2);
